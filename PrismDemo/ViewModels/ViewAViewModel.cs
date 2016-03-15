@@ -24,8 +24,11 @@ namespace PrismDemo.ViewModels
         public string LastName
         {
             get { return _lastName; }
-            set { SetProperty(ref _lastName, value);
-                UpdateCommand.RaiseCanExecuteChanged(); }
+            set 
+            { 
+                SetProperty(ref _lastName, value);
+                //UpdateCommand.RaiseCanExecuteChanged(); 
+            }
         }
 
         private DateTime? _lastUpdated;
@@ -33,15 +36,20 @@ namespace PrismDemo.ViewModels
         public DateTime? LastUpdated
         {
             get { return _lastUpdated; }
-            set { SetProperty(ref _lastUpdated, value); 
-                UpdateCommand.RaiseCanExecuteChanged(); }
+            set 
+            { 
+                SetProperty(ref _lastUpdated, value); 
+                //UpdateCommand.RaiseCanExecuteChanged(); 
+            }
         }
 
         public DelegateCommand UpdateCommand { get; set; }
 
         public ViewAViewModel()
         {
-            UpdateCommand = new DelegateCommand(Execute, CanExecute);
+            UpdateCommand = new DelegateCommand(Execute, CanExecute)
+                .ObservesProperty(()=>FirstName)
+                .ObservesProperty(()=>LastName);
         }
 
         private bool CanExecute()
