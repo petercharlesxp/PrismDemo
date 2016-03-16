@@ -48,8 +48,9 @@ namespace PrismDemo.ViewModels
         public ViewAViewModel()
         {
             UpdateCommand = new DelegateCommand(Execute, CanExecute)
-                .ObservesProperty(()=>FirstName)
-                .ObservesProperty(()=>LastName);
+                .ObservesProperty(() => FirstName)
+                .ObservesProperty(() => LastName);
+            //UpdateCommand = new DelegateCommand(Execute).ObservesCanExecute(p => CanExecute);
         }
 
         private bool CanExecute()

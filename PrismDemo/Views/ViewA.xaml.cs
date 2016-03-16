@@ -24,7 +24,7 @@ namespace PrismDemo.Views
         public ViewA()
         {
             InitializeComponent();
-            DataContext = new ViewAViewModel();
+            //DataContext = new ViewAViewModel();
         }
     }
 }

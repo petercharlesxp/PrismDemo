@@ -14,7 +14,8 @@
         </StackPanel>
         
         <ContentControl Grid.Row="1">
-
+            <!-- <views:ViewA /> -->
         </ContentControl>
+
     </Grid>
 </Window>
